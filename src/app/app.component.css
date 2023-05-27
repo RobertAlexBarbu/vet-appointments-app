@@ -1,5 +1,16 @@
-app-navbar-desktop {
+app-header {
     width: 100%;
-    position: sticky;
+    position: fixed;
     top: 0px;
+}
+
+app-navbar {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+}
+@media(min-width: 768px) {
+    app-navbar {
+        top: 0px;
+    }
 }

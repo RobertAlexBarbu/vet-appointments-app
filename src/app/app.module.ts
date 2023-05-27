@@ -5,16 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppointmentsComponent } from './appointments/appointments.component';
 import { StatisticsComponent } from './statistics/statistics.component';
-import { NavbarDesktopComponent } from './navbar-desktop/navbar-desktop.component';
-import { NavbarMobileComponent } from './navbar-mobile/navbar-mobile.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppointmentsComponent,
     StatisticsComponent,
-    NavbarDesktopComponent,
-    NavbarMobileComponent
+    NavbarComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
