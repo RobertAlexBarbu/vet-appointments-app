@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--light-gray);
+}
+html * {
+    box-sizing: border-box;
+}
+html {
+    width: 100%;
+    height: 100%;
+    font-size: var(--default-font-size);
+    color: var(--black);
+    font-family: outfit-regular;
+}
+:root {
+    --default-font-size: 17px;
+    --secondary-font-size: 15px;
+
+    --light-gray: rgba(217, 217, 217, 0.32);
+    --gray: #C6C6C6;
+    --dark-gray: #7A7A7A;
+    --black: #171717;
+    --teal: #14B8A6;
+}
+@media(min-width: 768px) {
+    :root {
+        --default-font-size: 21px;
+        --secondary-font: 18px;
+    }
+}
+@font-face {
+    font-family: outfit-regular;
+    src: url(src/assets/fonts/Outfit-Regular.ttf);
+}
+@font-face {
+    font-family: outfit-bold;
+    src: url(src/assets/fonts/Outfit-Bold.ttf);
+}
+@font-face {
+    font-family: outfit-light;
+    src: url(src/assets/fonts/Outfit-Light.ttf);
+}
+
+app-root {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
