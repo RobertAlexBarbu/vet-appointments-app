@@ -19,14 +19,18 @@ html {
     --default-font-size: 17px;
     --secondary-font-size: 15px;
 
-    --light-gray: rgba(217, 217, 217, 0.32);
+    --border-radius: 5px;
+
+    --light-gray: rgba(217, 217, 217, 0.6); /* rgba(217, 217, 217, 0.32); */
     --gray: #d7d7d7;
     --dark-gray: #7A7A7A;
     --black: #171717;
     --teal: #14B8A6;
+    --light-teal: #1ed2be;
 }
 @media(min-width: 768px) {
     :root {
+        --large-font-size: 25px;
         --default-font-size: 21px;
         --secondary-font: 18px;
     }
@@ -50,3 +54,33 @@ app-root {
     flex-direction: column;
     width: 100%;
 }
+
+.bold-txt {
+    font-family: outfit-bold;
+}
+.white-txt {
+    color: white;
+}
+select {
+    appearance: none;
+    font-size: var(--secondary-font-size);
+    background-color: var(--light-gray);
+    color: var(--black);
+    border: 0px;
+    padding: 5px 10px 5px 10px;
+    border-radius: var(--border-radius);
+}
+select:hover {
+    cursor: pointer;
+}
+select:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px var(--teal);
+}
+.select-svg {
+    width: 1.2rem;
+}
+.select-label:hover {
+    cursor: pointer;
+}
+

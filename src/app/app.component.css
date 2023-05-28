@@ -12,5 +12,12 @@ app-navbar {
 @media(min-width: 768px) {
     app-navbar {
         top: 0px;
+        bottom: 100%;
     }
+}
+
+.router {
+    width: min(100%, 800px);
+    margin-top: 4.5rem;
+    margin-bottom: 6rem;
 }
