@@ -8,15 +8,15 @@ export interface IAppointment {
     status: Status;
 }
 export enum Species {
-    Dog = "Dog",
-    Cat = "Cat",
-    Rodent = "Rodent",
-    Bird = "Bird",
-    Fish = "Fish",
-    Other = "Other"
+    DOG = "Dog",
+    CAT = "Cat",
+    RODENT = "Rodent",
+    BIRD = "Bird",
+    FISH = "Fish",
+    OTHER = "Other"
 }
 export enum Status {
-    Created = "created",
-    Confirmed = "confirmed",
-    Closed = "closed"
+    CREATED = "created",
+    CONFIRMED = "confirmed",
+    CLOSED = "closed"
 }

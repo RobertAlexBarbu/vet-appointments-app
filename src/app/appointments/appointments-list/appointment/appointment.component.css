@@ -2,18 +2,17 @@
     background-color: white;
     padding: 1rem;
     font-size: var(--secondary-font-size);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 1rem;
 
 }
 .card-container {
     box-shadow: var(--box-shadow);
     border-radius: 10px;
-    margin-bottom: 1rem;
+
 }
 @media(min-width: 768px) {
     .card {
-    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
-    }
-    .card-container {
         margin-bottom: 0px;
     }
 }
@@ -22,6 +21,8 @@
 .animal-section {
     border-bottom: 2px solid var(--light-gray);
     padding-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
 }
 .name {
     font-family: outfit-bold;
@@ -97,36 +98,31 @@
 }
 
 .edit-btn {
-    background-color: var(--teal);
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: white;
-    font-size: var(--secondary-font-size);
-    padding: 8px;
+    color: var(--black);
+    font-size: calc(var(--secondary-font-size) - 2px);
+    padding: 5px;
     font-family: outfit-semibold;
     column-gap: 3px;
+    border-radius: var(--border-radius);
 }
 .edit-btn svg {
-    width: 0.8rem;
+    width: 0.75rem;
 }
 .edit-btn:hover {
     cursor: pointer;
-    background-color: var(--light-teal);
+    background-color: var(--light-gray);
 }
-.edit-btn:active {
-    background-color: var(--light-teal);
-}
-@media(min-width: 768px) {
-    .edit-btn {
-        border-radius: 0px 0px var(--border-radius) var(--border-radius);
-    }
-}
+
+
 @media (min-width: 580px) {
-    .animal-section {
+    .animal {
         display: flex;
         column-gap: 5px;
+        align-items: center;
     }
     .animal-info::before {
         content: '-';

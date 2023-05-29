@@ -7,5 +7,9 @@ import {IAppointment} from "../../appointment.model";
   styleUrls: ['./appointments-list.component.css']
 })
 export class AppointmentsListComponent {
-    @Input() appointments!: Array<IAppointment>;
+    @Input() todayAppointments!: Array<IAppointment>;
+    @Input() upcomingAppointments!: Array<IAppointment>;
+    @Input() pastAppointments!: Array<IAppointment>;
+    @Input() sortingOption!:string;
+
 }

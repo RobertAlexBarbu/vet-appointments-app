@@ -1,10 +1,17 @@
-<div class="card-container">
+
     <div class="card">
     <div class="animal-section">
-        <div class="name">{{appointment.name}}</div>
-        <div class="animal-info">
-            <div class="species">{{appointment.species}},</div>
-            <div class="breed">{{appointment.breed}}</div>
+        <div class="animal">
+            <div class="name">{{appointment.name}}</div>
+            <div class="animal-info">
+                <div class="species">{{appointment.species}},</div>
+                <div class="breed">{{appointment.breed}}</div>
+            </div>
+        </div>
+        <div class="edit-btn">
+            <div class="edit-text">Edit</div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path fill="currentcolor" d="M794-666 666-794l42-42q17-17 42.5-16.5T793-835l43 43q17 17 17 42t-17 42l-42 42Zm-42 42L248-120H120v-128l504-504 128 128Z"/></svg>
+
         </div>
     </div>
     <div class="data-section">
@@ -14,7 +21,7 @@
                     <svg class="label-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path fill="currentcolor" d="m627-287 45-45-159-160v-201h-60v225l174 181ZM480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-82 31.5-155t86-127.5Q252-817 325-848.5T480-880q82 0 155 31.5t127.5 86Q817-708 848.5-635T880-480q0 82-31.5 155t-86 127.5Q708-143 635-111.5T480-80Zm0-400Zm0 340q140 0 240-100t100-240q0-140-100-240T480-820q-140 0-240 100T140-480q0 140 100 240t240 100Z"/></svg>
                     <div class="label-text">When:</div>
                 </div>
-                <div class="data">{{appointment.date.toLocaleDateString() + " - " + appointment.date.getHours() + ":" + appointment.date.getMinutes()}}</div>
+                <div class="data">{{appointment.date | date:'MMM d,  hh:mm a'}}</div>
             </div>
             <div class="doctor field">
                 <div class="label">
@@ -44,9 +51,5 @@
         </div>
     </div>
     </div>
-    <div class="edit-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path fill="currentcolor" d="M794-666 666-794l42-42q17-17 42.5-16.5T793-835l43 43q17 17 17 42t-17 42l-42 42Zm-42 42L248-120H120v-128l504-504 128 128Z"/></svg>
-        <div class="edit-text">Edit</div>
-    </div>
 
-</div>
+

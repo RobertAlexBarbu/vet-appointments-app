@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-appointments-menu',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./appointments-menu.component.css']
 })
 export class AppointmentsMenuComponent {
-
+    @Output() sortingOptionChange = new EventEmitter();
+    public sortingChange(value: string) {
+        this.sortingOptionChange.emit(value);
+    }
 }

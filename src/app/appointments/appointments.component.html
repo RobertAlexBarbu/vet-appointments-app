@@ -1,4 +1,9 @@
 <div>
-    <app-appointments-menu></app-appointments-menu>
-    <app-appointments-list [appointments]="appointments"></app-appointments-list>
+    <app-appointments-menu (sortingOptionChange)="setSortingOption($event)"></app-appointments-menu>
+    <app-appointments-list
+            [todayAppointments]="todayAppointments"
+            [upcomingAppointments]="upcomingAppointments"
+            [pastAppointments]="pastAppointments"
+            [sortingOption]="sortingOption">
+    </app-appointments-list>
 </div>

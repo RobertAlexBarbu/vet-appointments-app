@@ -8,4 +8,7 @@ import {IAppointment} from "../../../appointment.model";
 })
 export class AppointmentComponent {
     @Input() appointment!: IAppointment;
+
+
+
 }
