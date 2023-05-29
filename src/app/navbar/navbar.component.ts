@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
+import {NavigationService} from "../navigation.service";
 
 @Component({
   selector: 'app-navbar',
@@ -16,4 +17,5 @@ export class NavbarComponent {
         }
         return false;
     }
+
 }
