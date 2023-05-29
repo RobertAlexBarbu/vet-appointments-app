@@ -1,0 +1,148 @@
+.card {
+    background-color: white;
+    padding: 1rem;
+    font-size: var(--secondary-font-size);
+
+}
+.card-container {
+    box-shadow: var(--box-shadow);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+@media(min-width: 768px) {
+    .card {
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+    }
+    .card-container {
+        margin-bottom: 0px;
+    }
+}
+
+
+.animal-section {
+    border-bottom: 2px solid var(--light-gray);
+    padding-bottom: 5px;
+}
+.name {
+    font-family: outfit-bold;
+}
+.species {
+    font-family: outfit-semibold;
+}
+
+.animal-info {
+    display: flex;
+    column-gap: 5px;
+    color: var(--teal);
+}
+
+
+.date-doctor {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+}
+
+.data-section {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.label {
+    color: var(--dark-gray);
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.label-svg {
+    width: var(--secondary-font-size);
+    color: var(--dark-gray);
+}
+
+
+.data-section .field {
+    display: flex;
+    column-gap: 5px;
+    align-items: start;
+}
+.diagnostic .data {
+    margin-left: calc(var(--secondary-font-size) + 5px);
+}
+.status .data {
+    margin-left: 5px;
+    color: white;
+    border-radius: var(--border-radius);
+    text-align: center;
+    width: 6rem;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.data {
+    font-family: outfit-medium;
+}
+.data-section .status.field {
+    align-items: center;
+}
+.yellow-bg {
+    background-color: var(--yellow);
+}
+.purple-bg {
+    background-color: var(--purple);
+}
+.dark-gray-bg {
+    background-color: var(--dark-gray);
+}
+
+.edit-btn {
+    background-color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: var(--secondary-font-size);
+    padding: 8px;
+    font-family: outfit-semibold;
+    column-gap: 3px;
+}
+.edit-btn svg {
+    width: 0.8rem;
+}
+.edit-btn:hover {
+    cursor: pointer;
+    background-color: var(--light-teal);
+}
+.edit-btn:active {
+    background-color: var(--light-teal);
+}
+@media(min-width: 768px) {
+    .edit-btn {
+        border-radius: 0px 0px var(--border-radius) var(--border-radius);
+    }
+}
+@media (min-width: 580px) {
+    .animal-section {
+        display: flex;
+        column-gap: 5px;
+    }
+    .animal-info::before {
+        content: '-';
+        color: var(--dark-gray);
+    }
+    .date-doctor {
+        display: flex;
+        flex-direction: row;
+        column-gap: 2rem;
+        align-items: start;
+    }
+    .diagnostic {
+        display: flex;
+        align-items: start;
+    }
+    .diagnostic .data {
+        margin-left: 5px;
+    }
+}

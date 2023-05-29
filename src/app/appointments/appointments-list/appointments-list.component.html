@@ -1,1 +1,16 @@
-<div>appointments-list works!</div>
+<div class="sublists">
+<div class="sublist">
+    <div class="time-category bold-txt large-txt">TODAY</div>
+
+    <ng-container *ngFor="let appointment of appointments">
+        <app-appointment [appointment]="appointment"></app-appointment>
+    </ng-container>
+
+</div>
+<div class="sublist">
+
+</div>
+<div class="sublist">
+
+</div>
+</div>

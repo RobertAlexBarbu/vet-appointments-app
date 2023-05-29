@@ -5,7 +5,7 @@
     background-color: white;
     border-radius: var(--border-radius);
     row-gap: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: var(--box-shadow);
 }
 .create-btn {
     background-color: var(--teal);
@@ -33,7 +33,12 @@
     row-gap: 3px;
     padding-left: 10px;
     padding-right: 10px;
-    font-size: var(--secondary-font-size)
+    font-size: calc(var(--secondary-font-size));
+}
+@media(max-width: 320px) {
+    .sort-filter {
+        font-size: 15px;
+    }
 }
 .filter-svg {
     width: 1rem;
@@ -43,7 +48,7 @@
     align-items: center;
 }
 .sort-text {
-    margin-right: 0.5rem;
+    margin-right: 6px;
     margin-left: 3px;
 }
 .filter {

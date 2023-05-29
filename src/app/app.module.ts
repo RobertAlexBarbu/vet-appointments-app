@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HeaderComponent } from './header/header.component';
 import { AppointmentsMenuComponent } from './appointments/appointments-menu/appointments-menu.component';
 import { AppointmentsListComponent } from './appointments/appointments-list/appointments-list.component';
+import { AppointmentComponent } from './appointments/appointments-list/appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppointmentsListComponent } from './appointments/appointments-list/appo
     NavbarComponent,
     HeaderComponent,
     AppointmentsMenuComponent,
-    AppointmentsListComponent
+    AppointmentsListComponent,
+    AppointmentComponent
   ],
   imports: [
     BrowserModule,
