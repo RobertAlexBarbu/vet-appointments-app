@@ -1,101 +1,149 @@
 <div class="container">
     <div class="top">
-        <div class="title">New Appointment</div>
+        <div class="title">Create new appointment</div>
+        <div class="info">All fields are required</div>
     </div>
-    <form ngForm #appointmentForm="ngForm">
-        <div class="subform" ngModelGroup="general">
+    <form ngForm #appointmentForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="section" ngModelGroup="general">
             <div class="subform-label">General info</div>
-        <div class="doctor-field">
-            <label for="doctor">Doctor</label>
-            <input placeholder="Doctor name" type="text" name="doctor" id="doctor" required [(ngModel)]="newAppointment.doctor">
+            <div class="subform" >
+                
+            <div class="doctor-field">
+                <label for="doctor">Doctor</label>
+                <input placeholder="Doctor name" type="text" name="doctor" id="doctor" required [(ngModel)]="model.doctor">
+            </div>
+            </div>
         </div>
 
-        </div>
-
-        <div class="subform" ngModelGroup="animal">
+        <div class="section" ngModelGroup="animal">
             <div class="subform-label">Animal info</div>
-            <div class="radios-control">
-                <div class="radio-btn" [class.selected-radio]="existsOrNew==='exists'">
-                    <input type="radio" name="existsOrNew" id="exists" [(ngModel)]="existsOrNew" value="exists">
-                    <label for="exists">Existing Animal</label>
+            <div class="subform" >
+                <div class="radios-control">
+                    <div class="radio-btn" [class.selected-radio]="existsOrNew==='exists'">
+                        <input type="radio" name="existsOrNew" id="exists" [(ngModel)]="existsOrNew" value="exists">
+                        <label for="exists">Existing Animal</label>
+                    </div>
+                    <div class="radio-btn" [class.selected-radio]="existsOrNew==='new'">
+                        <input type="radio" name="existsOrNew" id="new" [(ngModel)]="existsOrNew" value="new">
+                        <label for="new">New Animal</label>
+                    </div>
                 </div>
-                <div class="radio-btn" [class.selected-radio]="existsOrNew==='new'">
-                    <input type="radio" name="existsOrNew" id="new" [(ngModel)]="existsOrNew" value="new">
-                    <label for="new">New Animal</label>
+            <ng-container *ngIf="existsOrNew==='new'">
+                <div class="species-field">
+                    <label for="species">Species</label>
+                    <div class="select-container">
+                        <select required [(ngModel)]="model.species" name="species" id="species">
+                            <option value="dog">Dog</option>
+                            <option value="cat">Cat</option>
+                            <option value="rodent">Rodent</option>
+                            <option value="bird">Bird</option>
+                            <option value="fish">Fish</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        <ng-container *ngIf="existsOrNew==='new'">
-            <div class="species-field">
-                <label for="species">Species</label>
-                <div class="select-container">
-                    <select required [(ngModel)]="newAppointment.species" name="species" id="species">
-                        <option value="dog">Dog</option>
-                        <option value="cat">Cat</option>
-                        <option value="rodent">Rodent</option>
-                        <option value="bird">Bird</option>
-                        <option value="fish">Fish</option>
-                        <option value="other">Other</option>
-                    </select>
+                <div class="breed-field">
+                    <label for="breed">Breed</label>
+                    <input required placeholder="Animal breed" type="text" name="breed" id="breed" [(ngModel)]="model.breed">
                 </div>
-            </div>
-            <div class="breed-field">
-                <label for="breed">Breed</label>
-                <input required placeholder="Animal breed" type="text" name="breed" id="breed" [(ngModel)]="newAppointment.breed">
-            </div>
-            <div class="name-field">
-                <label for="name">Name</label>
-                <input required placeholder="Animal name" type="text" name="name" id="name" [(ngModel)]="newAppointment.name">
-            </div>
-        </ng-container>
-        <ng-container *ngIf="existsOrNew==='exists'">
-            <div class="existing-field">
-                <label for="existing">Existing animal</label>
-                <div class="select-container">
-                    <select required [(ngModel)]="newAppointment.species" name="existing" id="existing">
-                        <option value="dog">Cerasela, Cat, Crossbreed</option>
-                    </select>
+                <div class="name-field">
+                    <label for="name">Name</label>
+                    <input required placeholder="Animal name" type="text" name="name" id="name" [(ngModel)]="model.name">
                 </div>
+            </ng-container>
+            <ng-container *ngIf="existsOrNew==='exists'">
+                <div class="existing-field">
+                    <label for="existing">Existing animal</label>
+                    <div class="select-container">
+                        <select required [(ngModel)]="selectedAnimalIndex" name="existing" id="existing">
+                            <ng-container *ngFor="let animal of existingAnimals; index as i">
+                                <option value="{{i}}">{{animal.species + ", " | titlecase }}
+                                    {{animal.breed + ", " | titlecase }}
+                                    {{animal.name + " " | titlecase }}</option>
+                            </ng-container>
+                        </select>
+                    </div>
+                </div>
+                <div class="previous-field">
+                    <div class="previous-label">Previous appointments</div>
+                    <ng-container *ngIf="selectedAnimalIndex">
+                        <div class="prev-appointment" *ngFor="let appointment of getAnimalAppointments(existingAnimals[selectedAnimalIndex]); index as i">
+                            <div class="prev-index">{{i+1}}.</div>
+                            <div class="prev-info">
+                                <div class="prev-text">Date: </div>
+                                <div class="prev-data">{{appointment.date | date:'MMM d,  hh:mm a'}}</div>
+                            </div>
+                            <div class="prev-info">
+                                <div class="prev-text">Doctor:</div>
+                                <div class="prev-data">{{appointment.doctor | titlecase}}</div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class="select-existing" *ngIf="!selectedAnimalIndex">Select an existing animal</div>
+                </div>
+            </ng-container>
             </div>
-        </ng-container>
         </div>
 
-        <div class="subform" ngModelGroup="date">
+        <div class="section" ngModelGroup="date">
             <div class="subform-label">Date info</div>
-        <div class="year-field">
-            <label for="year">Year</label>
-            <input required type="number" name="year" id="year" [(ngModel)]="appointmentYear">
-        </div>
-            <div class="time-section">
-            <div class="month-field">
-                <label for="month">Month</label>
+            <div class="subform" >
+                
+            <div class="year-field">
+                <label for="year">Year</label>
                 <div class="select-container">
-                    <select required [(ngModel)]="appointmentMonth" name="month" id="month">
-                        <option value="0">Jan</option>
+                    <select #year required (change)="resetMonth(); resetDate();" [(ngModel)]="appointmentYear" name="year" id="year">
+                        <option value="{{currentYear}}">{{currentYear}}</option>
+                        <option value="{{currentYear+1}}">{{currentYear+1}}</option>
+                        <option value="{{currentYear+2}}">{{currentYear+2}}</option>
+                        <option value="{{currentYear+3}}">{{currentYear+3}}</option>
+                        <option value="{{currentYear+4}}">{{currentYear+5}}</option>
                     </select>
                 </div>
             </div>
-            <div class="date-field">
-                <label for="date">Date</label>
-                <input required type="number" name="date" id="date" [(ngModel)]="appointmentDate">
-            </div>
-            </div>
-            <div class="time-section">
-            <div class="hour-field">
-                <label for="hour">Hour</label>
-                <input required type="number" name="hour" id="hour" [(ngModel)]="appointmentHour">
-            </div>
-            <div class="minutes-field">
-                <label for="minutes">Minutes</label>
-                <input required type="number" name="minutes" id="minutes" [(ngModel)]="appointmentMinutes">
-            </div>
+                <div class="time-section">
+                <div class="month-field">
+                    <label for="month">Month</label>
+                    <div class="select-container">
+                        <select #month required [(ngModel)]="appointmentMonth" name="month" id="month">
+                            <option [disabled]="disabledMonth(0)" value="0">January</option>
+                            <option [disabled]="disabledMonth(1)" value="1">February</option>
+                            <option [disabled]="disabledMonth(2)" value="2">March</option>
+                            <option [disabled]="disabledMonth(3)" value="3">April</option>
+                            <option [disabled]="disabledMonth(4)" value="4">May</option>
+                            <option [disabled]="disabledMonth(5)" value="5">June</option>
+                            <option [disabled]="disabledMonth(6)" value="6">July</option>
+                            <option [disabled]="disabledMonth(7)" value="7">August</option>
+                            <option [disabled]="disabledMonth(8)" value="8">September</option>
+                            <option [disabled]="disabledMonth(9)" value="9">November</option>
+                            <option [disabled]="disabledMonth(10)" value="10">October</option>
+                            <option [disabled]="disabledMonth(11)" value="11">December</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="date-field">
+                    <label for="date">Date</label>
+                    <input #date="ngModel" [min]="getSmallestDate(appointmentYear, appointmentMonth)" [max]="getDaysInMonth(appointmentYear, appointmentMonth)" required type="number" name="date" id="date" [(ngModel)]="appointmentDate" inputmode="numeric">
+                    <div class="error" *ngIf="date.errors?.['min'] || date.errors?.['max']">Invalid date</div>
+                </div>
+                </div>
+                <div class="time-section">
+                <div class="hour-field">
+                    <label for="hour">Hour</label>
+                    <input #hour="ngModel" min="0" max="23"  required type="number" name="hour" id="hour" [(ngModel)]="appointmentHour" inputmode="numeric">
+                    <div class="error" *ngIf="hour.errors?.['min'] || hour.errors?.['max']">Invalid hour</div>
+                </div>
+                <div class="minutes-field">
+                    <label for="minutes">Minutes</label>
+                    <input #minutes="ngModel" min="0" max="59"required type="number" name="minutes" id="minutes" [(ngModel)]="appointmentMinutes" inputmode="numeric">
+                    <div class="error" *ngIf="minutes.errors?.['min'] || minutes.errors?.['max']">Invalid minutes</div>
+                </div>
+                </div>
             </div>
         </div>
         <div class="buttons">
             <button class="cancel-btn" (click)="goToAppointments()">Cancel</button>
             <button type="submit" class="submit-btn" [class.disabled-btn]="!appointmentForm.form.valid">Create</button>
         </div>
-
     </form>
-    <div>{{newAppointment | json}}</div>
-    <div>{{existsOrNew}}</div>
 </div>

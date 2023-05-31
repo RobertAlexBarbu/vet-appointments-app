@@ -11,7 +11,7 @@
 .back-btn {
     margin-right: auto;
     font-size: calc(var(--secondary-font-size) - 3px);
-    font-family: outfit-semibold;
+    font-family: outfit-semibold, sans-serif;
     width: 4rem;
     display: flex;
     align-items: center;
@@ -21,43 +21,54 @@
 
 .top {
     display: flex;
-    width: min(100%, 550px);
-    margin-bottom: 2rem;
-    margin-top: 1rem;
+    width: min(100%, 600px);
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    flex-direction: column;
+ 
 }
 .title {
-    color: var(--teal);
+    color: var(--black);
     font-family: outfit-bold, sans-serif;
     font-size: var(--large-font-size);
-    width: min(100%, 500px);
+
 }
 
 form {
     font-size: var(--secondary-font-size);
-    width: min(100%, 550px);
+    width: min(100%, 600px);
     font-family: outfit-medium, sans-serif;
     display: flex;
     flex-direction: column;
-    row-gap: 2.5rem;
+    row-gap: 3.5rem;
+}
+.info {
+    color: var(--dark-gray);
+    font-size: var(--secondary-font-size);
 }
 .subform {
     display: flex;
     flex-direction: column;
-    row-gap: 1.4rem;
+    row-gap: 1.5rem;
     width: 100%;
+
+
+}
+.section {
     padding-left: 15px;
-    border-radius: var(--border-radius);
+    padding-right: 19px;
 }
 .subform-label {
     font-size: var(--default-font-size);
     color: var(--black);
     border-bottom: 2px solid var(--gray);
     font-family: outfit-semibold, sans-serif;
+    margin-bottom: 1rem;
 }
 #species {
     width: 100%;
 }
-label {
+label, .previous-label {
     color: var(--dark-gray);
     margin-bottom: 7px;
     display: inline-block;
@@ -82,6 +93,7 @@ input[type="text"], input[type="number"] {
 .radio-btn label {
     margin-bottom: 0;
     color: var(--black);
+    cursor: pointer;
 }
 .selected-radio {
     border-color: var(--teal);
@@ -106,11 +118,13 @@ input[type="radio"] {
     display: flex;
     column-gap: 1rem;
     margin-top: 1rem;
+    justify-content: center;
+
 }
 .buttons button {
     width: 50%;
-    padding: 5px 5px;
-    font-family: outfit-semibold;
+    padding: 10px 5px 10px 5px;
+    font-family: outfit-semibold, sans-serif;
     color: white;
     font-size: 1rem;
     border-radius: var(--border-radius);
@@ -132,22 +146,64 @@ input[type="radio"] {
 button:hover {
     cursor: pointer;
 }
-.disabled-btn {
-    background-color: var(--gray);
-
-
+button.submit-btn.disabled-btn {
+    background-color: var(--extra-light-teal);
+    color: var(--extra-light-teal2);
 }
 .disabled-btn:hover {
-    background-color: var(--gray);
+    background-color: var(--disabled-gray);
     cursor: default;
 }
 /* FORM STUFF */
 form .ng-invalid {
-    border-left: 4px solid var(--yellow);
+    border-left: 4px solid var(--red);
 }
 form .ng-invalid:focus {
-    border-color: var(--teal);
+    border-color: var(--red);
 }
 form .ng-valid:not(input[type="radio"]){
     border-left: 4px solid var(--teal);
+}
+
+
+.prev-appointment {
+    display: flex;
+    border-radius: var(--border-radius);
+    padding: 4px 8px 4px 8px;
+    align-items: flex-start;
+    column-gap: 15px;
+}
+.prev-info {
+    display: flex;
+    column-gap: 5px;
+    flex-direction: column;
+    width: 100%;
+}
+@media(min-width: 768px) {
+    .prev-info {
+        flex-direction: row;
+    }
+}
+.prev-text {
+    color: var(--dark-gray);
+}
+.prev-index {
+    width: 20px;
+}
+.select-existing {
+    padding: 4px 0px 4px 0px;
+}
+.year-field, .minutes-field, .hour-field, .date-field {
+    position: relative;
+}
+.error {
+    font-family: outfit-regular;
+    color: var(--red);
+    position: absolute;
+    bottom: -20px;
+    left: 0px;
+    font-size: 14px;
+}
+.hide {
+    display: none;
 }
