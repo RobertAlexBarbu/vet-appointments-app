@@ -71,6 +71,20 @@
 }
 .diagnostic .data {
     margin-left: calc(var(--secondary-font-size) + 5px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.diagnostic .data.no-diagnostic {
+    padding: 0px;
+}
+@media (min-width: 580px) {
+    .diagnostic .data {
+        padding: 0px;
+    }
+    .diagnostic {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
 }
 .status .data {
     margin-left: 5px;
