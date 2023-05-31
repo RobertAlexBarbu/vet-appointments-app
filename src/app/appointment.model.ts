@@ -1,22 +1,16 @@
 export interface IAppointment {
-    name: string;
-    species: Species;
-    breed: string;
+    name?: string;
+    species?: string;
+    breed?: string;
     date: Date;
-    doctor: string;
-    diagnostic: string;
-    status: Status;
+    doctor?: string;
+    diagnostic?: string;
+    status?: "created" | "closed" | "confirmed";
 }
-export enum Species {
-    DOG = "Dog",
-    CAT = "Cat",
-    RODENT = "Rodent",
-    BIRD = "Bird",
-    FISH = "Fish",
-    OTHER = "Other"
+
+export class Appointment implements IAppointment{
+    date = new Date();
+    constructor(){
+    }
 }
-export enum Status {
-    CREATED = "created",
-    CONFIRMED = "confirmed",
-    CLOSED = "closed"
-}
+

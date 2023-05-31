@@ -67,7 +67,7 @@
 .data-section .field {
     display: flex;
     column-gap: 5px;
-    align-items: start;
+    align-items: flex-start;
 }
 .diagnostic .data {
     margin-left: calc(var(--secondary-font-size) + 5px);
@@ -132,11 +132,11 @@
         display: flex;
         flex-direction: row;
         column-gap: 2rem;
-        align-items: start;
+        align-items: flex-start;
     }
     .diagnostic {
         display: flex;
-        align-items: start;
+        align-items: flex-start;
     }
     .diagnostic .data {
         margin-left: 5px;

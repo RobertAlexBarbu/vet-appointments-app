@@ -5,15 +5,14 @@
     </button>
     <div class="sort-filter">
         <div class="sort">
+
             <div class="sort-text bold-txt">Sort by</div>
-            <select #sorting (change)="sortingChange(sorting.value)" class="minimal" id="sort-dropdown">
-                <option value="closest">Closest</option>
-                <option value="farthest">Farthest Away</option>
-                <option value="oldest">Oldest</option>
-            </select>
-            <label for="sort-dropdown" class="select-label">
-                <svg class="select-svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960" ><path d="M480-345 240-585l43-43 197 198 197-197 43 43-240 239Z"/></svg>
-            </label>
+            <div class="select-container">
+                <select #sorting (change)="sortingChange(sorting.value)" class="minimal" id="sort-dropdown">
+                    <option value="farthest">Farthest Away</option>
+                    <option value="oldest">Oldest</option>
+                </select>
+            </div>
         </div>
         <div  class="filter">
             <div class="filter-text bold-txt">Filter</div>

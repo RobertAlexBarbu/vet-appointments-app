@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/header.component';
 import { AppointmentsMenuComponent } from './appointments/appointments-menu/appointments-menu.component';
 import { AppointmentsListComponent } from './appointments/appointments-list/appointments-list.component';
 import { AppointmentComponent } from './appointments/appointments-list/appointment/appointment.component';
+import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { AppointmentComponent } from './appointments/appointments-list/appointme
     HeaderComponent,
     AppointmentsMenuComponent,
     AppointmentsListComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    AddAppointmentComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -48,7 +48,7 @@
     align-items: center;
 }
 .sort-text {
-    margin-right: 6px;
+    margin-right: 10px;
     margin-left: 3px;
 }
 .filter {
@@ -65,4 +65,6 @@
         background-color: var(--light-teal);
         cursor: pointer;
     }
+}
+select {
 }

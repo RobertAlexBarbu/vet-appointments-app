@@ -1,92 +1,11 @@
 <div class="sublists">
-    <!-- CLOSEST -->
-    <ng-container *ngIf="sortingOption==='closest'">
-        <div class="sublist" [class.empty]="todayAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">TODAY</div>
-            <ng-container *ngFor="let appointment of todayAppointments">
+        <div class="sublist" [class.empty]="appointments.length === 0">
+            <div class="time-category bold-txt large-txt">Appointments</div>
+            <ng-container *ngFor="let appointment of getSorted(sortingOption)">
                 <app-appointment [appointment]="appointment"></app-appointment>
             </ng-container>
-            <div class="empty-text" *ngIf="todayAppointments.length === 0">
-                No appointments today...
+            <div class="empty-text" *ngIf="appointments.length === 0">
+                No appointments...
             </div>
         </div>
-        <div class="sublist" [class.empty]="upcomingAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">UPCOMING</div>
-            <ng-container *ngFor="let appointment of upcomingAppointments">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="upcomingAppointments.length === 0">
-                No upcoming appointments...
-            </div>
-        </div>
-        <div class="sublist" [class.empty]="pastAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">PAST</div>
-            <ng-container *ngFor="let appointment of pastAppointments">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="pastAppointments.length === 0">
-                No past appointments...
-            </div>
-        </div>
-    </ng-container>
-    <!-- Farthest -->
-    <ng-container *ngIf="sortingOption==='farthest'">
-        <div class="sublist" [class.empty]="upcomingAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">UPCOMING</div>
-            <ng-container *ngFor="let appointment of upcomingAppointments.slice().reverse()">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="upcomingAppointments.length === 0">
-                No upcoming appointments...
-            </div>
-        </div>
-        <div class="sublist" [class.empty]="todayAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">TODAY</div>
-            <ng-container *ngFor="let appointment of todayAppointments.slice().reverse()">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="todayAppointments.length === 0">
-                No appointments today...
-            </div>
-        </div>
-        <div class="sublist" [class.empty]="pastAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">PAST</div>
-            <ng-container *ngFor="let appointment of pastAppointments.slice().reverse()">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="pastAppointments.length === 0">
-                No past appointments...
-            </div>
-        </div>
-    </ng-container>
-    <!--Oldest-->
-    <ng-container *ngIf="sortingOption==='oldest'">
-        <div class="sublist" [class.empty]="pastAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">PAST</div>
-            <ng-container *ngFor="let appointment of pastAppointments">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="pastAppointments.length === 0">
-                No past appointments...
-            </div>
-        </div>
-        <div class="sublist" [class.empty]="todayAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">TODAY</div>
-            <ng-container *ngFor="let appointment of todayAppointments">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="todayAppointments.length === 0">
-                No appointments today...
-            </div>
-        </div>
-        <div class="sublist" [class.empty]="upcomingAppointments.length === 0">
-            <div class="time-category bold-txt large-txt">UPCOMING</div>
-            <ng-container *ngFor="let appointment of upcomingAppointments">
-                <app-appointment [appointment]="appointment"></app-appointment>
-            </ng-container>
-            <div class="empty-text" *ngIf="upcomingAppointments.length === 0">
-                No upcoming appointments...
-            </div>
-        </div>
-    </ng-container>
 </div>

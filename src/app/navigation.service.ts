@@ -12,5 +12,8 @@ export class NavigationService {
   newAppointment():Promise<boolean> {
     return this.router.navigate(["appointments", "new"]);
   }
+  goToAppointments() :Promise<boolean> {
+      return this.router.navigate(["appointments"]);
+  }
 
 }
