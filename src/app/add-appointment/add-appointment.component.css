@@ -25,7 +25,7 @@
     margin-bottom: 3rem;
     margin-top: 2rem;
     flex-direction: column;
- 
+
 }
 .title {
     color: var(--black);
@@ -49,7 +49,7 @@ form {
 .subform {
     display: flex;
     flex-direction: column;
-    row-gap: 1.5rem;
+    row-gap: 0.8rem;
     width: 100%;
 
 
@@ -94,11 +94,19 @@ input[type="text"], input[type="number"] {
     margin-bottom: 0;
     color: var(--black);
     cursor: pointer;
+    display: block;
+  width: 70%;
 }
 .selected-radio {
     border-color: var(--teal);
     color: var(--teal);
     background-color: rgba(20, 184, 166, 0.07);
+}
+.disabled-radio {
+  background-color: rgba(128, 128, 128, 0.07);
+}
+.disabled-radio label {
+  color: var(--gray);
 }
 .selected-radio label {
     color: var(--teal);
@@ -147,11 +155,13 @@ button:hover {
     cursor: pointer;
 }
 button.submit-btn.disabled-btn {
-    background-color: var(--extra-light-teal);
-    color: var(--extra-light-teal2);
+  background-color: var(--teal);
+  opacity: 0.4;
+  color: var(--extra-light-teal);
 }
 .disabled-btn:hover {
-    background-color: var(--disabled-gray);
+    opacity: 0.4;
+  background-color: var(--teal);
     cursor: default;
 }
 /* FORM STUFF */
@@ -161,7 +171,7 @@ form .ng-invalid {
 form .ng-invalid:focus {
     border-color: var(--red);
 }
-form .ng-valid:not(input[type="radio"]){
+form .ng-valid:not(input[type="radio"], input[type="checkbox"]){
     border-left: 4px solid var(--teal);
 }
 
@@ -188,7 +198,7 @@ form .ng-valid:not(input[type="radio"]){
     color: var(--dark-gray);
 }
 .prev-index {
-    width: 20px;
+    width: 2rem;
 }
 .select-existing {
     padding: 4px 0px 4px 0px;
@@ -197,11 +207,11 @@ form .ng-valid:not(input[type="radio"]){
     position: relative;
 }
 .error {
-    font-family: outfit-regular;
+    font-family: outfit-light;
     color: var(--red);
     position: absolute;
-    bottom: -20px;
-    left: 0px;
+    top: 10px;
+    right: 0px;
     font-size: 14px;
 }
 .hide {

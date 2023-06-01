@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavigationService} from "../navigation.service";
 import {Appointment, IAnimal, IAppointment} from "../appointment.model";
 import {AppointmentService} from "../appointment.service";
-import {AppointmentDataService} from "../appointment-data.service";
+import {AppointmentFilterService} from "../appointment-filter.service";
 import {AppointmentSorterService} from "../appointment-sorter.service";
 
 @Component({
@@ -10,7 +10,7 @@ import {AppointmentSorterService} from "../appointment-sorter.service";
   templateUrl: './add-appointment.component.html',
   styleUrls: ['./add-appointment.component.css']
 })
-export class AddAppointmentComponent {
+export class AddAppointmentComponent implements OnInit {
 
     appointments: Array<IAppointment> = [];
     existingAnimals: Array<IAnimal> = [];
@@ -31,19 +31,22 @@ export class AddAppointmentComponent {
     currentDate = this.date.getDate();
 
 
-    constructor(private navigate: NavigationService, private appointmentService: AppointmentService, private data: AppointmentDataService) {
-        appointmentService.getAppointments().subscribe(
-            (data) => {
-                this.appointments = data;
-            }
-        )
+    constructor(private navigate: NavigationService, private appointmentService: AppointmentService, private data: AppointmentFilterService) {
+
         this.appointmentYear = this.model.date.getFullYear();
         this.appointmentMonth = this.model.date.getMonth();
         this.appointmentDate = this.model.date.getDate();
-        this.existingAnimals = this.data.getExistingAnimals(this.appointments);
-        console.log(this.existingAnimals);
+
     }
 
+    ngOnInit() {
+      this.appointmentService.getAppointments().subscribe(
+        (appointments) => {
+          this.appointments = appointments;
+        }
+      )
+      this.existingAnimals = this.data.getExistingAnimals(this.appointments);
+    }
 
     goToAppointments():Promise<boolean> {
         return this.navigate.goToAppointments();
