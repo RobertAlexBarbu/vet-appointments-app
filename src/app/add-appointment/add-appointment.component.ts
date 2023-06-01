@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {NavigationService} from "../navigation.service";
 import {Appointment, IAnimal, IAppointment} from "../appointment.model";
 import {AppointmentService} from "../appointment.service";
-import {AppointmentDataService} from "../appointment-data.service";
+import {AppointmentFilterService} from "../appointment-filter.service";
 import {AppointmentSorterService} from "../appointment-sorter.service";
 
 @Component({
@@ -31,7 +31,7 @@ export class AddAppointmentComponent implements OnInit {
     currentDate = this.date.getDate();
 
 
-    constructor(private navigate: NavigationService, private appointmentService: AppointmentService, private data: AppointmentDataService) {
+    constructor(private navigate: NavigationService, private appointmentService: AppointmentService, private data: AppointmentFilterService) {
 
         this.appointmentYear = this.model.date.getFullYear();
         this.appointmentMonth = this.model.date.getMonth();

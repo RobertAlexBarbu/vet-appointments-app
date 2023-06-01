@@ -13,6 +13,7 @@ import { AppointmentComponent } from './appointments/appointments-list/appointme
 import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
 import {FormsModule} from "@angular/forms";
 import { EditAppointmentComponent } from './edit-appointment/edit-appointment.component';
+import { FilterAppointmentsComponent } from './filter-appointments/filter-appointments.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EditAppointmentComponent } from './edit-appointment/edit-appointment.co
     AppointmentsListComponent,
     AppointmentComponent,
     AddAppointmentComponent,
-    EditAppointmentComponent
+    EditAppointmentComponent,
+    FilterAppointmentsComponent
   ],
     imports: [
         BrowserModule,

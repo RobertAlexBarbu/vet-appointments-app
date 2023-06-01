@@ -18,4 +18,8 @@ export class NavigationService {
   goEditAppointment(id:number) :Promise<boolean> {
     return this.router.navigate(["appointments", "edit", id]);
   }
+
+  goToFilterAppointments():Promise<boolean> {
+    return this.router.navigate(["appointments", "filter"]);
+  }
 }

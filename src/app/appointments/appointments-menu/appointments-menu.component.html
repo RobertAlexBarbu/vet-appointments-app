@@ -14,10 +14,16 @@
                 </select>
             </div>
         </div>
-        <div  class="filter">
+        <div  class="filter" (click)="goToFilterAppointments()">
             <div class="filter-text bold-txt">Filter</div>
             <svg class="filter-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M440-160q-17 0-28.5-11.5T400-200v-240L161-745q-14-17-4-36t31-19h584q21 0 31 19t-4 36L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-276 240-304H240l240 304Zm0 0Z"/></svg>
-
         </div>
     </div>
 </div>
+<div class="active-filters">
+  <div class="active-filters-text">
+    Active filters: {{getActiveFilters()}}
+  </div>
+  <svg *ngIf="getActiveFilters()>0" (click)="resetFilters()" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" ><path fill="currentcolor" d="m249-183-66-66 231-231-231-231 66-66 231 231 231-231 66 66-231 231 231 231-66 66-231-231-231 231Z"/></svg>
+</div>
+

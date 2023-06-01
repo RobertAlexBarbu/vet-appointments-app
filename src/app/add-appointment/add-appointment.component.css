@@ -171,7 +171,7 @@ form .ng-invalid {
 form .ng-invalid:focus {
     border-color: var(--red);
 }
-form .ng-valid:not(input[type="radio"]){
+form .ng-valid:not(input[type="radio"], input[type="checkbox"]){
     border-left: 4px solid var(--teal);
 }
 

@@ -66,5 +66,24 @@
         cursor: pointer;
     }
 }
-select {
+.active-filters {
+  font-size: var(--secondary-font-size);
+  font-family: outfit-regular;
+  color: white;
+  background-color: var(--teal);
+  display: flex;
+  justify-content: space-between;
+  width: max-content;
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  box-shadow: var(--box-shadow);
+}
+.active-filters svg {
+  width: 1rem;
+  margin-left: 1rem;
+}
+.active-filters svg:hover {
+  cursor: pointer;
 }
