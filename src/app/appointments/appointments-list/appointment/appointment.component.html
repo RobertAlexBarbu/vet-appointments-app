@@ -8,7 +8,7 @@
                 <div class="breed">{{appointment.breed | titlecase}}</div>
             </div>
         </div>
-        <div class="edit-btn">
+        <div class="edit-btn" (click)="goEditAppointment(appointment.id)">
             <div class="edit-text">Edit</div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path fill="currentcolor" d="M794-666 666-794l42-42q17-17 42.5-16.5T793-835l43 43q17 17 17 42t-17 42l-42 42Zm-42 42L248-120H120v-128l504-504 128 128Z"/></svg>
 

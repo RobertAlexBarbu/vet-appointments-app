@@ -19,4 +19,15 @@ export class AppointmentService {
         return of(appointment);
     }
 
+    getAppointment(id: number):Observable<IAppointment> {
+      const index = Appointments.findIndex((appointment)=>appointment.id === id);
+      return of(Appointments[index]);
+    }
+
+
+    updateAppointment(id: number, newAppointment: IAppointment) {
+      const index = Appointments.findIndex((appointment)=>appointment.id === id);
+      Appointments[index] = newAppointment;
+      return of(newAppointment);
+    }
 }

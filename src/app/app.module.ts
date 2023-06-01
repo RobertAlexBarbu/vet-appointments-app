@@ -12,6 +12,7 @@ import { AppointmentsListComponent } from './appointments/appointments-list/appo
 import { AppointmentComponent } from './appointments/appointments-list/appointment/appointment.component';
 import { AddAppointmentComponent } from './add-appointment/add-appointment.component';
 import {FormsModule} from "@angular/forms";
+import { EditAppointmentComponent } from './edit-appointment/edit-appointment.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {FormsModule} from "@angular/forms";
     AppointmentsMenuComponent,
     AppointmentsListComponent,
     AppointmentComponent,
-    AddAppointmentComponent
+    AddAppointmentComponent,
+    EditAppointmentComponent
   ],
     imports: [
         BrowserModule,

@@ -1,0 +1,33 @@
+textarea {
+  width: 100%;
+}
+textarea {
+  font-family: outfit-regular;
+}
+.optional {
+  margin-left: 1rem;
+  font-family: outfit-light;
+  font-size: var(--secondary-font-size);
+}
+.radios-control {
+  column-gap: 10px;
+}
+@media (max-width: 560px) {
+  .radios-control {
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .radios-control .radio-btn {
+    width: 100%;
+  }
+}
+.section {
+  border-left: 4px solid var(--gray);
+}
+
+.closed-aux {
+  font-family: outfit-regular;
+  margin-top: 10px;
+  padding-left: 5px;
+  color: var(--dark-gray);
+}

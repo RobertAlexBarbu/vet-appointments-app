@@ -1,13 +1,13 @@
 <div class="container">
     <div class="top">
         <div class="title">Create new appointment</div>
-        <div class="info">All fields are required</div>
+        <div class="info">(All fields are required unless specified optional)</div>
     </div>
     <form ngForm #appointmentForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="section" ngModelGroup="general">
             <div class="subform-label">General info</div>
             <div class="subform" >
-                
+
             <div class="doctor-field">
                 <label for="doctor">Doctor</label>
                 <input placeholder="Doctor name" type="text" name="doctor" id="doctor" required [(ngModel)]="model.doctor">
@@ -29,6 +29,10 @@
                     </div>
                 </div>
             <ng-container *ngIf="existsOrNew==='new'">
+              <div class="name-field">
+                <label for="name">Name</label>
+                <input required placeholder="Animal name" type="text" name="name" id="name" [(ngModel)]="model.name">
+              </div>
                 <div class="species-field">
                     <label for="species">Species</label>
                     <div class="select-container">
@@ -46,10 +50,7 @@
                     <label for="breed">Breed</label>
                     <input required placeholder="Animal breed" type="text" name="breed" id="breed" [(ngModel)]="model.breed">
                 </div>
-                <div class="name-field">
-                    <label for="name">Name</label>
-                    <input required placeholder="Animal name" type="text" name="name" id="name" [(ngModel)]="model.name">
-                </div>
+
             </ng-container>
             <ng-container *ngIf="existsOrNew==='exists'">
                 <div class="existing-field">
@@ -65,7 +66,7 @@
                     </div>
                 </div>
                 <div class="previous-field">
-                    <div class="previous-label">Previous appointments</div>
+                    <div class="previous-label aux-label">Previous appointments</div>
                     <ng-container *ngIf="selectedAnimalIndex">
                         <div class="prev-appointment" *ngFor="let appointment of getAnimalAppointments(existingAnimals[selectedAnimalIndex]); index as i">
                             <div class="prev-index">{{i+1}}.</div>
@@ -88,7 +89,7 @@
         <div class="section" ngModelGroup="date">
             <div class="subform-label">Date info</div>
             <div class="subform" >
-                
+
             <div class="year-field">
                 <label for="year">Year</label>
                 <div class="select-container">
@@ -130,12 +131,12 @@
                 <div class="time-section">
                 <div class="hour-field">
                     <label for="hour">Hour</label>
-                    <input #hour="ngModel" min="0" max="23"  required type="number" name="hour" id="hour" [(ngModel)]="appointmentHour" inputmode="numeric">
+                    <input #hour="ngModel" placeholder="23" min="0" max="23"  required type="number" name="hour" id="hour" [(ngModel)]="appointmentHour" inputmode="numeric">
                     <div class="error" *ngIf="hour.errors?.['min'] || hour.errors?.['max']">Invalid hour</div>
                 </div>
                 <div class="minutes-field">
                     <label for="minutes">Minutes</label>
-                    <input #minutes="ngModel" min="0" max="59"required type="number" name="minutes" id="minutes" [(ngModel)]="appointmentMinutes" inputmode="numeric">
+                    <input #minutes="ngModel" placeholder="59" min="0" max="59"required type="number" name="minutes" id="minutes" [(ngModel)]="appointmentMinutes" inputmode="numeric">
                     <div class="error" *ngIf="minutes.errors?.['min'] || minutes.errors?.['max']">Invalid minutes</div>
                 </div>
                 </div>
