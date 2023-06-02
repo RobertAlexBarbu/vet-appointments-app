@@ -14,12 +14,13 @@ export class StatisticsComponent implements OnInit {
   statusStats: Array<IStat> = [];
 
   timeStats: Array<IStat> = [];
+
   constructor(private appointmentService: AppointmentService, private statisticsService: AppointmentStatisticsService) {
 
   }
 
   ngOnInit() {
-    this.appointmentService.getAppointments().subscribe((appointments)=>{
+    this.appointmentService.getAppointments().subscribe((appointments) => {
       this.appointments = appointments;
     });
     this.animalStats = this.statisticsService.getAnimalStats(this.appointments);

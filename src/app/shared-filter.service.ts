@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {BehaviorSubject, Subject} from "rxjs";
 import {Filter, IFilter} from "./appointment-filter.service";
 
@@ -7,7 +7,9 @@ import {Filter, IFilter} from "./appointment-filter.service";
 })
 export class SharedFilterService {
 
-  constructor() { }
+  constructor() {
+  }
+
   appliedFilter = new BehaviorSubject<IFilter>(new Filter());
 
   getAppliedFilter() {

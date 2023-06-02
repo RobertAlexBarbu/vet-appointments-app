@@ -24,9 +24,11 @@ export class EditAppointmentComponent implements OnInit {
   currentYear = this.date.getFullYear();
   currentMonth = this.date.getMonth();
   currentDate = this.date.getDate();
+
   constructor(private route: ActivatedRoute, private apppointmentService: AppointmentService, private navigate: NavigationService) {
 
   }
+
   ngOnInit() {
     this.apppointmentService.getAppointment(+this.route.snapshot.params['id'])
       .subscribe((appointment) => {
@@ -40,11 +42,11 @@ export class EditAppointmentComponent implements OnInit {
     this.appointmentMinutes = this.appointment.date.getMinutes();
   }
 
-  goToAppointments():Promise<boolean> {
+  goToAppointments(): Promise<boolean> {
     return this.navigate.goToAppointments();
   }
 
-  onSubmit():Promise<boolean> {
+  onSubmit(): Promise<boolean> {
     this.appointment.date = new Date(this.appointmentYear, this.appointmentMonth, this.appointmentDate, this.appointmentHour, this.appointmentMinutes);
     this.apppointmentService.updateAppointment(+this.route.snapshot.params['id'], this.appointment);
     return this.navigate.goToAppointments();
@@ -57,8 +59,9 @@ export class EditAppointmentComponent implements OnInit {
       return false;
     }
   }
+
   isClosed() {
-    if(this.appointment.status === "closed") {
+    if (this.appointment.status === "closed") {
       return true;
     } else {
       return false;
@@ -66,38 +69,41 @@ export class EditAppointmentComponent implements OnInit {
   }
 
   hasNoDiagnostic() {
-    if(this.appointment.diagnostic === "") {
+    if (this.appointment.diagnostic === "") {
       return true;
     }
     return false;
   }
 
 
-
   /* Helpers for date related form controls */
-  getDaysInMonth(year:number, month: number) {
+  getDaysInMonth(year: number, month: number) {
     month = +month;
-    return new Date(year, month+1, 0).getDate();
+    return new Date(year, month + 1, 0).getDate();
   }
+
   resetMonth() {
     this.appointmentMonth = this.currentYear === +this.appointmentYear ?
       this.currentMonth : 0;
   }
+
   resetDate() {
     this.appointmentDate =
       this.currentYear === Number(this.appointmentYear) &&
       this.currentMonth === Number(this.appointmentMonth) ?
         this.currentDate : 1;
   }
+
   disabledMonth(nr: number) {
-    if(this.currentYear === +this.appointmentYear &&
+    if (this.currentYear === +this.appointmentYear &&
       nr < this.currentMonth) {
       return true;
     }
     return false;
   }
-  getSmallestDate(year:number, month: number) {
-    if(this.currentYear === +year && this.currentMonth === +month) {
+
+  getSmallestDate(year: number, month: number) {
+    if (this.currentYear === +year && this.currentMonth === +month) {
       return this.currentDate;
     } else return 1;
   }

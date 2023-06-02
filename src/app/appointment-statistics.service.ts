@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {IAppointment} from "./appointment.model";
 
 
@@ -28,15 +28,17 @@ export class Stat implements IStat {
     this.percentage = parseFloat(((parseFloat(value.toFixed(2)) / parseFloat(total.toFixed(2))) * 100).toFixed(2));
   }
 }
+
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentStatisticsService {
 
-  constructor() { }
+  constructor() {
+  }
 
   getAnimalColor(animal: string) {
-    switch(animal) {
+    switch (animal) {
       case "dog":
         return "#14B8A6";
       case "cat":
@@ -51,8 +53,9 @@ export class AppointmentStatisticsService {
         return "#7A7A7A";
     }
   }
+
   getStatusColor(status: string) {
-    switch(status) {
+    switch (status) {
       case "ongoing":
         return "#14B8A6";
       case "closed":
@@ -61,7 +64,8 @@ export class AppointmentStatisticsService {
         return "#7A7A7A";
     }
   }
-  getAnimalStats(appointments:Array<IAppointment>): Array<IStat> {
+
+  getAnimalStats(appointments: Array<IAppointment>): Array<IStat> {
     const stats = []
     const total = appointments.length;
     let dogs = 0;
@@ -70,23 +74,18 @@ export class AppointmentStatisticsService {
     let birds = 0;
     let fish = 0;
     let other = 0;
-    for(const appointment of appointments) {
-      if(appointment.species === "dog") {
+    for (const appointment of appointments) {
+      if (appointment.species === "dog") {
         dogs++;
-      }
-      else if(appointment.species === "cat") {
+      } else if (appointment.species === "cat") {
         cats++;
-      }
-      else if(appointment.species === "rodent") {
+      } else if (appointment.species === "rodent") {
         rodents++;
-      }
-      else if(appointment.species === "bird") {
+      } else if (appointment.species === "bird") {
         birds++;
-      }
-      else if(appointment.species === "fish") {
+      } else if (appointment.species === "fish") {
         fish++;
-      }
-      else {
+      } else {
         other++;
       }
     }
@@ -100,39 +99,52 @@ export class AppointmentStatisticsService {
     return stats.sort((a, b) => b.value - a.value);
   }
 
-  getStatusStats(appointments:Array<IAppointment>) {
+  getStatusStats(appointments: Array<IAppointment>) {
     const total = appointments.length;
     const stats = [];
     let ongoing = 0;
     let closed = 0;
-    for(const appointment of appointments) {
-      if(appointment.status === "created" || appointment.status === "confirmed") {
+    for (const appointment of appointments) {
+      if (appointment.status === "created" || appointment.status === "confirmed") {
         ongoing++;
       } else {
         closed++;
       }
     }
-    stats.push(new Stat("ongoing", ongoing, total, this.getStatusColor("ongoing") ));
+    stats.push(new Stat("ongoing", ongoing, total, this.getStatusColor("ongoing")));
     stats.push(new Stat("closed", closed, total, this.getStatusColor("closed")));
 
     return stats.sort((a, b) => b.value - a.value);
   }
 
   getMonthName(nr: number) {
-    switch(nr) {
-      case 0: return "Jan";
-      case 1: return "Feb";
-      case 2: return "Mar";
-      case 3: return "Apr";
-      case 4: return "May";
-      case 5: return "Jun";
-      case 6: return "Jul";
-      case 7: return "Aug";
-      case 8: return "Sep";
-      case 9: return "Oct";
-      case 10: return "Nov";
-      case 11: return "Dec";
-      default: return "Jan";
+    switch (nr) {
+      case 0:
+        return "Jan";
+      case 1:
+        return "Feb";
+      case 2:
+        return "Mar";
+      case 3:
+        return "Apr";
+      case 4:
+        return "May";
+      case 5:
+        return "Jun";
+      case 6:
+        return "Jul";
+      case 7:
+        return "Aug";
+      case 8:
+        return "Sep";
+      case 9:
+        return "Oct";
+      case 10:
+        return "Nov";
+      case 11:
+        return "Dec";
+      default:
+        return "Jan";
     }
   }
 
@@ -141,14 +153,14 @@ export class AppointmentStatisticsService {
     let highest = 0;
     let months = Array(12).fill(0);
     let auxYear = (new Date()).getFullYear();
-    for(let i=0; i<appointments.length; i++) {
+    for (let i = 0; i < appointments.length; i++) {
       // to make sure we get only the dates from the current year
-      if(appointments[i].date.getFullYear() === auxYear) {
+      if (appointments[i].date.getFullYear() === auxYear) {
         months[appointments[i].date.getMonth()]++;
       }
     }
     highest = Math.max(...months);
-    for(let i=0; i<months.length; i++) {
+    for (let i = 0; i < months.length; i++) {
       stats.push(new Stat(this.getMonthName(i), months[i], highest));
     }
     return stats;

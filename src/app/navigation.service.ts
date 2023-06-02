@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 
 @Injectable({
@@ -9,17 +9,19 @@ export class NavigationService {
   constructor(private router: Router) {
   }
 
-  newAppointment():Promise<boolean> {
+  newAppointment(): Promise<boolean> {
     return this.router.navigate(["appointments", "new"]);
   }
-  goToAppointments() :Promise<boolean> {
-      return this.router.navigate(["appointments"]);
+
+  goToAppointments(): Promise<boolean> {
+    return this.router.navigate(["appointments"]);
   }
-  goEditAppointment(id:number) :Promise<boolean> {
+
+  goEditAppointment(id: number): Promise<boolean> {
     return this.router.navigate(["appointments", "edit", id]);
   }
 
-  goToFilterAppointments():Promise<boolean> {
+  goToFilterAppointments(): Promise<boolean> {
     return this.router.navigate(["appointments", "filter"]);
   }
 }

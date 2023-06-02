@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {NavigationService} from "../navigation.service";
 
@@ -8,14 +8,15 @@ import {NavigationService} from "../navigation.service";
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-    constructor(private router: Router) {
+  constructor(private router: Router) {
 
+  }
+
+  public isActive(route: string) {
+    if (this.router.url.includes(route)) {
+      return true;
     }
-    public isActive(route: string) {
-        if(this.router.url.includes(route)) {
-            return true;
-        }
-        return false;
-    }
+    return false;
+  }
 
 }

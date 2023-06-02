@@ -8,14 +8,14 @@ import {NavigationService} from "../../../navigation.service";
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent {
-    @Input() appointment!: IAppointment;
+  @Input() appointment!: IAppointment;
 
-    constructor(private navigate:NavigationService) {
+  constructor(private navigate: NavigationService) {
 
-    }
+  }
 
-    goEditAppointment(id:number):Promise<boolean> {
-      return this.navigate.goEditAppointment(id);
-    }
+  goEditAppointment(id: number): Promise<boolean> {
+    return this.navigate.goEditAppointment(id);
+  }
 
 }

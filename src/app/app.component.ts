@@ -7,5 +7,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class AppComponent {
   title = 'vet-appointments-app';
-  constructor() { }
+
+  constructor() {
+  }
 }

@@ -1,36 +1,34 @@
-
-
 <div class="statistics">
-    <div class="header">
-      <div class="title">Statistics</div>
-      <div class="subtitle">Useful data about your appointments</div>
+  <div class="header">
+    <div class="title">Statistics</div>
+    <div class="subtitle">Useful data about your appointments</div>
+  </div>
+  <div class="statistics-cards">
+
+    <div class="card">
+      <div class="card-header">
+        <div class="title">Time</div>
+        <div class="subtitle">The distribution of appointments over the current year</div>
+      </div>
+      <app-bar-chart [stats]="timeStats"></app-bar-chart>
     </div>
-    <div class="statistics-cards">
 
-      <div class="card">
-        <div class="card-header">
-          <div class="title">Time</div>
-          <div class="subtitle">The distribution of appointments over the current year</div>
-        </div>
-        <app-bar-chart [stats]="timeStats" ></app-bar-chart>
+    <div class="card">
+      <div class="card-header">
+        <div class="title">Animals</div>
+        <div class="subtitle">The distribution of animals per appointments</div>
       </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="title">Animals</div>
-          <div class="subtitle">The distribution of animals per appointments</div>
-        </div>
-          <app-pie-chart [stats]="animalStats"></app-pie-chart>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <div class="title">Status</div>
-          <div class="subtitle">The raport between ongoing and closed appointments</div>
-        </div>
-        <app-pie-chart [stats]="statusStats"></app-pie-chart>
-      </div>
-
+      <app-pie-chart [stats]="animalStats"></app-pie-chart>
     </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="title">Status</div>
+        <div class="subtitle">The raport between ongoing and closed appointments</div>
+      </div>
+      <app-pie-chart [stats]="statusStats"></app-pie-chart>
+    </div>
+
+  </div>
 
 </div>

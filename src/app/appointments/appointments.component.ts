@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {AppointmentService} from "../appointment.service";
 import {IAppointment} from "../appointment.model";
 import {getLocaleMonthNames} from "@angular/common";
@@ -12,12 +12,13 @@ import {Observer} from "rxjs";
 export class AppointmentsComponent {
 
 
-    sortingOption:string="farthest";
-    setSortingOption(value:string) {
-        this.sortingOption = value;
-    }
+  sortingOption: string = "farthest";
 
-    constructor() {
-    }
+  setSortingOption(value: string) {
+    this.sortingOption = value;
+  }
+
+  constructor() {
+  }
 
 }

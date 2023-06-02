@@ -7,60 +7,65 @@
 
     <div class="section" ngModelGroup="animal">
       <div class="subform-label">Animal info</div>
-      <div class="subform" >
+      <div class="subform">
         <div class="name-field">
           <label for="name">Name</label>
-          <input required placeholder="Animal name" type="text" name="name" id="name" [(ngModel)]="appointment.name" [disabled]="isConfirmed()">
+          <input required placeholder="Animal name" type="text" name="name" id="name" [(ngModel)]="appointment.name"
+                 [disabled]="isConfirmed()">
         </div>
-          <div class="species-field">
-            <label for="species">Species</label>
-            <div class="select-container">
-              <select required [(ngModel)]="appointment.species" name="species" id="species" [disabled]="isConfirmed()">
-                <option value="dog">Dog</option>
-                <option value="cat">Cat</option>
-                <option value="rodent">Rodent</option>
-                <option value="bird">Bird</option>
-                <option value="fish">Fish</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
+        <div class="species-field">
+          <label for="species">Species</label>
+          <div class="select-container">
+            <select required [(ngModel)]="appointment.species" name="species" id="species" [disabled]="isConfirmed()">
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="rodent">Rodent</option>
+              <option value="bird">Bird</option>
+              <option value="fish">Fish</option>
+              <option value="other">Other</option>
+            </select>
           </div>
-          <div class="breed-field">
-            <label for="breed">Breed</label>
-            <input required placeholder="Animal breed" type="text" name="breed" id="breed" [(ngModel)]="appointment.breed" [disabled]="isConfirmed()">
-          </div>
+        </div>
+        <div class="breed-field">
+          <label for="breed">Breed</label>
+          <input required placeholder="Animal breed" type="text" name="breed" id="breed" [(ngModel)]="appointment.breed"
+                 [disabled]="isConfirmed()">
+        </div>
       </div>
     </div>
 
     <div class="section" ngModelGroup="general">
       <div class="subform-label">General info</div>
-      <div class="subform" >
+      <div class="subform">
 
         <div class="doctor-field">
           <label for="doctor">Doctor</label>
-          <input placeholder="Doctor name" type="text" name="doctor" id="doctor" required [(ngModel)]="appointment.doctor" [disabled]="isConfirmed()">
+          <input placeholder="Doctor name" type="text" name="doctor" id="doctor" required
+                 [(ngModel)]="appointment.doctor" [disabled]="isConfirmed()">
         </div>
 
         <div class="diagnostic-field">
           <label for="diagnostic">Diagnostic<span class="optional">(Optional)</span></label>
-          <textarea [disabled]="isClosed()" placeholder="Add diagnostic here" id=diagnostic rows="10" name="diagnostic" [(ngModel)]="appointment.diagnostic"></textarea>
+          <textarea [disabled]="isClosed()" placeholder="Add diagnostic here" id=diagnostic rows="10" name="diagnostic"
+                    [(ngModel)]="appointment.diagnostic"></textarea>
         </div>
       </div>
     </div>
 
     <div class="section" ngModelGroup="date">
       <div class="subform-label">Date info</div>
-      <div class="subform" >
+      <div class="subform">
 
         <div class="year-field">
           <label for="year">Year</label>
           <div class="select-container">
-            <select #year required (change)="resetMonth(); resetDate();" [(ngModel)]="appointmentYear" name="year" id="year" [disabled]="isConfirmed()">
+            <select #year required (change)="resetMonth(); resetDate();" [(ngModel)]="appointmentYear" name="year"
+                    id="year" [disabled]="isConfirmed()">
               <option value="{{currentYear}}">{{currentYear}}</option>
-              <option value="{{currentYear+1}}">{{currentYear+1}}</option>
-              <option value="{{currentYear+2}}">{{currentYear+2}}</option>
-              <option value="{{currentYear+3}}">{{currentYear+3}}</option>
-              <option value="{{currentYear+4}}">{{currentYear+5}}</option>
+              <option value="{{currentYear+1}}">{{currentYear + 1}}</option>
+              <option value="{{currentYear+2}}">{{currentYear + 2}}</option>
+              <option value="{{currentYear+3}}">{{currentYear + 3}}</option>
+              <option value="{{currentYear+4}}">{{currentYear + 5}}</option>
             </select>
           </div>
         </div>
@@ -86,19 +91,23 @@
           </div>
           <div class="date-field">
             <label for="date">Date</label>
-            <input #date="ngModel" [min]="getSmallestDate(appointmentYear, appointmentMonth)" [max]="getDaysInMonth(appointmentYear, appointmentMonth)" required type="number" name="date" id="date" [(ngModel)]="appointmentDate" inputmode="numeric" [disabled]="isConfirmed()">
+            <input #date="ngModel" [min]="getSmallestDate(appointmentYear, appointmentMonth)"
+                   [max]="getDaysInMonth(appointmentYear, appointmentMonth)" required type="number" name="date"
+                   id="date" [(ngModel)]="appointmentDate" inputmode="numeric" [disabled]="isConfirmed()">
             <div class="error" *ngIf="date.errors?.['min'] || date.errors?.['max']">Invalid date</div>
           </div>
         </div>
         <div class="time-section">
           <div class="hour-field">
             <label for="hour">Hour</label>
-            <input #hour="ngModel" placeholder="23" min="0" max="23"  required type="number" name="hour" id="hour" [(ngModel)]="appointmentHour" inputmode="numeric" [disabled]="isConfirmed()">
+            <input #hour="ngModel" placeholder="23" min="0" max="23" required type="number" name="hour" id="hour"
+                   [(ngModel)]="appointmentHour" inputmode="numeric" [disabled]="isConfirmed()">
             <div class="error" *ngIf="hour.errors?.['min'] || hour.errors?.['max']">Invalid hour</div>
           </div>
           <div class="minutes-field">
             <label for="minutes">Minutes</label>
-            <input #minutes="ngModel" placeholder="59" min="0" max="59"required type="number" name="minutes" id="minutes" [(ngModel)]="appointmentMinutes" inputmode="numeric" [disabled]="isConfirmed()">
+            <input #minutes="ngModel" placeholder="59" min="0" max="59" required type="number" name="minutes"
+                   id="minutes" [(ngModel)]="appointmentMinutes" inputmode="numeric" [disabled]="isConfirmed()">
             <div class="error" *ngIf="minutes.errors?.['min'] || minutes.errors?.['max']">Invalid minutes</div>
           </div>
         </div>
@@ -107,24 +116,26 @@
 
     <div class="section" ngModelGroup="status">
       <div class="subform-label">Status info</div>
-      <div class="subform" >
+      <div class="subform">
         <div class="radios-section">
-        <div class="radios-control">
-          <div class="radio-btn" [class.selected-radio]="appointment.status==='created'">
-            <input type="radio" name="status" id="created" [(ngModel)]="appointment.status" value="created" >
-            <label for="created">Created</label>
+          <div class="radios-control">
+            <div class="radio-btn" [class.selected-radio]="appointment.status==='created'">
+              <input type="radio" name="status" id="created" [(ngModel)]="appointment.status" value="created">
+              <label for="created">Created</label>
+            </div>
+            <div class="radio-btn" [class.selected-radio]="appointment.status==='confirmed'">
+              <input type="radio" name="status" id="confirmed" [(ngModel)]="appointment.status" value="confirmed">
+              <label for="confirmed">Confirmed</label>
+            </div>
+            <div class="radio-btn" [class.selected-radio]="appointment.status==='closed'"
+                 [class.disabled-radio]="hasNoDiagnostic()">
+              <input type="radio" name="statusClosed" id="closed" [(ngModel)]="appointment.status" value="closed"
+                     [disabled]="hasNoDiagnostic()">
+              <label for="closed">Closed</label>
+            </div>
           </div>
-          <div class="radio-btn" [class.selected-radio]="appointment.status==='confirmed'">
-            <input type="radio" name="status" id="confirmed" [(ngModel)]="appointment.status" value="confirmed" >
-            <label for="confirmed">Confirmed</label>
-          </div>
-          <div class="radio-btn" [class.selected-radio]="appointment.status==='closed'" [class.disabled-radio]="hasNoDiagnostic()">
-            <input type="radio" name="statusClosed" id="closed" [(ngModel)]="appointment.status" value="closed" [disabled]="hasNoDiagnostic()" >
-            <label for="closed">Closed</label>
-          </div>
-        </div>
 
-        <div *ngIf="hasNoDiagnostic()" class="closed-aux">Closed status not available - diagnostic required</div>
+          <div *ngIf="hasNoDiagnostic()" class="closed-aux">Closed status not available - diagnostic required</div>
         </div>
 
       </div>
@@ -132,7 +143,9 @@
 
     <div class="buttons">
       <button class="cancel-btn" (click)="goToAppointments()">Cancel</button>
-      <button type="submit" class="submit-btn" [disabled]="!appointmentForm.valid" [class.disabled-btn]="!appointmentForm.form.valid">Save</button>
+      <button type="submit" class="submit-btn" [disabled]="!appointmentForm.valid"
+              [class.disabled-btn]="!appointmentForm.form.valid">Save
+      </button>
     </div>
   </form>
 </div>
