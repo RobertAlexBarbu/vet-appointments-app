@@ -6,7 +6,7 @@ export let Appointments: Array<IAppointment> = [
         name: "Rocky",
         species: "dog",
         breed: "Crossbreed",
-        date: new Date(2023,7, 20, 17,  30),
+        date: new Date(2023,6, 20, 17,  30),
         doctor: "John Doe",
         diagnostic: "",
         status: "created"
@@ -50,5 +50,35 @@ export let Appointments: Array<IAppointment> = [
         doctor: "Mary Smith",
         diagnostic: "He should take the following pills: a b c, and that’s the placeholder diagnostic",
         status: "closed"
+    },
+    {
+      id: 6,
+      name: "Tommy",
+      species: "cat",
+      breed: "Tabby",
+      date: new Date(2023,3, 16, 13,  30),
+      doctor: "Mary Smith",
+      diagnostic: "He should take the following pills: a b c, and that’s the placeholder diagnostic",
+      status: "closed"
+    },
+    {
+      id: 7,
+      name: "Jerry",
+      species: "rodent",
+      breed: "Hamster",
+      date: new Date(2023,4, 2, 11,  0),
+      doctor: "Mary Smith",
+      diagnostic: "He should take the following pills: a b c, and that’s the placeholder diagnostic",
+      status: "closed"
+    },
+    {
+      id: 8,
+      name: "Rocky",
+      species: "dog",
+      breed: "Crossbreed",
+      date: new Date(2023,5, 3, 8,  30),
+      doctor: "John Doe",
+      diagnostic: "",
+      status: "confirmed"
     }
 ]

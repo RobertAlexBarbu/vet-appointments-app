@@ -10,9 +10,9 @@
       <div class="card">
         <div class="card-header">
           <div class="title">Time</div>
-          <div class="subtitle">The distribution over time of appointments</div>
+          <div class="subtitle">The distribution of appointments over the current year</div>
         </div>
-        <app-bar-chart></app-bar-chart>
+        <app-bar-chart [stats]="timeStats" ></app-bar-chart>
       </div>
 
       <div class="card">
@@ -26,7 +26,7 @@
       <div class="card">
         <div class="card-header">
           <div class="title">Status</div>
-          <div class="subtitle">The raport between ongoging and closed appointments</div>
+          <div class="subtitle">The raport between ongoing and closed appointments</div>
         </div>
         <app-pie-chart [stats]="statusStats"></app-pie-chart>
       </div>

@@ -20,7 +20,7 @@ export class Stat implements IStat {
   total: number = 0;
 
 
-  constructor(name: string, value: number, total: number, color: string) {
+  constructor(name: string, value: number, total: number, color: string = "teal") {
     this.color = color;
     this.name = name;
     this.value = value;
@@ -116,5 +116,42 @@ export class AppointmentStatisticsService {
     stats.push(new Stat("closed", closed, total, this.getStatusColor("closed")));
 
     return stats.sort((a, b) => b.value - a.value);
+  }
+
+  getMonthName(nr: number) {
+    switch(nr) {
+      case 0: return "Jan";
+      case 1: return "Feb";
+      case 2: return "Mar";
+      case 3: return "Apr";
+      case 4: return "May";
+      case 5: return "Jun";
+      case 6: return "Jul";
+      case 7: return "Aug";
+      case 8: return "Sep";
+      case 9: return "Oct";
+      case 10: return "Nov";
+      case 11: return "Dec";
+      default: return "Jan";
+    }
+  }
+
+  getTimeStats(appointments: Array<IAppointment>) {
+    const stats = [];
+    let highest = 0;
+    let months = Array(12).fill(0);
+    let auxYear = (new Date()).getFullYear();
+    for(let i=0; i<appointments.length; i++) {
+      // to make sure we get only the dates from the current year
+      if(appointments[i].date.getFullYear() === auxYear) {
+        months[appointments[i].date.getMonth()]++;
+      }
+    }
+    highest = Math.max(...months);
+    for(let i=0; i<months.length; i++) {
+      stats.push(new Stat(this.getMonthName(i), months[i], highest));
+    }
+    return stats;
+
   }
 }

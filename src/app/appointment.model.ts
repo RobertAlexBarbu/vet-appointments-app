@@ -16,7 +16,7 @@ export class Appointment implements IAppointment{
     breed: string;
     date: Date;
     doctor: string;
-    diagnostic: string = "";
+    diagnostic: string = "Edit to add a diagnostic";
     status: "created" | "closed" | "confirmed" = "created";
     constructor(id:number, name: string, species: string, breed: string, date: Date, doctor: string) {
         this.id = id;

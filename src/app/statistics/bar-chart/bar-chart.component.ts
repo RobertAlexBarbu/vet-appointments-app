@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {IStat} from "../../appointment-statistics.service";
 
 @Component({
   selector: 'app-bar-chart',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./bar-chart.component.css']
 })
 export class BarChartComponent {
-
+  @Input() stats: Array<IStat> = [];
 }

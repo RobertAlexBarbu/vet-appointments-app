@@ -12,6 +12,8 @@ export class StatisticsComponent implements OnInit {
   appointments: Array<IAppointment> = [];
   animalStats: Array<IStat> = [];
   statusStats: Array<IStat> = [];
+
+  timeStats: Array<IStat> = [];
   constructor(private appointmentService: AppointmentService, private statisticsService: AppointmentStatisticsService) {
 
   }
@@ -22,5 +24,6 @@ export class StatisticsComponent implements OnInit {
     });
     this.animalStats = this.statisticsService.getAnimalStats(this.appointments);
     this.statusStats = this.statisticsService.getStatusStats(this.appointments);
+    this.timeStats = this.statisticsService.getTimeStats(this.appointments);
   }
 }
