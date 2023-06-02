@@ -1,0 +1,18 @@
+<div class="chart">
+  <div class="pie-chart-container">
+    <div [style.background-image]="getChart()" class="pie-chart">
+    </div>
+    <div class="total-circle">
+      <div class="text">TOTAL Appointments</div>
+      <div class="value">{{stats[0].total}}</div>
+    </div>
+  </div>
+  <div class="chart-data">
+    <div class="entry" *ngFor="let entry of stats">
+      <div class="color" [style.background-color]="entry.color"></div>
+      <div class="name">{{entry.name | titlecase}}:</div>
+      <div class="value">{{entry.value}}</div>
+      <div class="percentage">({{entry.percentage}}%)</div>
+    </div>
+  </div>
+</div>

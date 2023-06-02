@@ -37,7 +37,6 @@
                 <div class="label-text">Diagnostic:</div>
             </div>
             <div class="data" *ngIf="!(appointment.diagnostic === '')" [class.no-diagnostic]="appointment.diagnostic === ''">{{appointment.diagnostic}}</div>
-            <div class="data" *ngIf="(appointment.diagnostic === '')" [class.no-diagnostic]="appointment.diagnostic === ''">Edit to add a diagnostic</div>
         </div>
         <div class="status field">
             <div class="label">

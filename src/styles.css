@@ -5,6 +5,7 @@ body {
     height: 100%;
     background-color: var(--light-gray);
 }
+
 html * {
     box-sizing: border-box;
 
@@ -19,6 +20,7 @@ html {
     font-size: var(--default-font-size);
     color: var(--black);
     font-family: outfit-regular, sans-serif;
+
 }
 :root {
     --large-font-size: 21px;

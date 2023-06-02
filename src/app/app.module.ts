@@ -14,6 +14,8 @@ import { AddAppointmentComponent } from './add-appointment/add-appointment.compo
 import {FormsModule} from "@angular/forms";
 import { EditAppointmentComponent } from './edit-appointment/edit-appointment.component';
 import { FilterAppointmentsComponent } from './filter-appointments/filter-appointments.component';
+import { PieChartComponent } from './statistics/pie-chart/pie-chart.component';
+import { BarChartComponent } from './statistics/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FilterAppointmentsComponent } from './filter-appointments/filter-appoin
     AppointmentComponent,
     AddAppointmentComponent,
     EditAppointmentComponent,
-    FilterAppointmentsComponent
+    FilterAppointmentsComponent,
+    PieChartComponent,
+    BarChartComponent
   ],
     imports: [
         BrowserModule,
