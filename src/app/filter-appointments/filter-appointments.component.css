@@ -5,10 +5,11 @@
 .checkbox {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--light-gray);
-  column-gap: 10px;
-  margin-bottom: 10px;
+
+  column-gap: 5px;
+  margin-bottom: 5px;
   padding-bottom: 3px;
+  width: 120px;
 }
 
 input[type="checkbox"] {
@@ -55,4 +56,10 @@ input[type="checkbox"]::before {
 .buttons-2 {
   display: flex;
   column-gap: 10px;
+}
+.checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  column-gap: 2rem;
 }

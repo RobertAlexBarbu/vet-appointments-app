@@ -40,7 +40,7 @@ form {
     font-family: outfit-medium, sans-serif;
     display: flex;
     flex-direction: column;
-    row-gap: 3.5rem;
+    row-gap: 2rem;
 }
 .info {
     color: var(--dark-gray);
